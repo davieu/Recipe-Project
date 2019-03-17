@@ -1,0 +1,25 @@
+{
+  "name": "recipe-project",
+  "version": "1.0.0",
+  "description": "recipe project",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davieu/Recipe-Project.git"
+  },
+  "author": "Davis Umana",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/davieu/Recipe-Project/issues"
+  },
+  "homepage": "https://github.com/davieu/Recipe-Project#readme",
+  "devDependencies": {
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0"
+  },
+  "dependencies": {}
+}
