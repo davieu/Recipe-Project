@@ -1,4 +1,8 @@
 console.log('Imported module');
-export default 23;
+console.log('testingggg')
+let yo = 190;
+console.log(yo)
+export default 108815151651;
+
 
 //quick test
