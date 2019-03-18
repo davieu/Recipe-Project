@@ -25,4 +25,5 @@ mvc
 es6 modules
 default and named exports and imports
 APIs/API keys - used food2fork API
-axios - http request 
+aync function / await
+axios - http request - try/catch 
