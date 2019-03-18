@@ -8,3 +8,21 @@ Npm run dev --- will do bundling and save on disk and WILL NOT MINIFY files
 npm run build --- will do bundling and save on disk and WILL MINIFY the files - for deployment
 
 This app uses a configured webpack. It uses babel and HtmlWebpackPlugin to bundle the files and inject the bundle.js/js file into the dist folder. 
+
+Follows a MVC - Model View Controller architecture
+
+seperates the presentation logic from the application logic with a controller in bewtween to control the entire app. Implemented with es6 modules
+
+Model- data and apps logic 
+Controller- index.js - brings the two together
+View- gets and displays data from and to the user interface
+
+This project consists of:
+
+webpack/configuration
+babel/configuration
+mvc
+es6 modules
+default and named exports and imports
+APIs/API keys - used food2fork API
+axios - http request 
