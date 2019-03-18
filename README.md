@@ -6,3 +6,5 @@ Npm run start --- This is the easiest way to view the app --- it will open the d
 
 Npm run dev --- will do bundling and save on disk and WILL NOT MINIFY files 
 npm run build --- will do bundling and save on disk and WILL MINIFY the files - for deployment
+
+This app uses a configured webpack. It uses babel and HtmlWebpackPlugin to bundle the files and inject the bundle.js/js file into the dist folder. 
