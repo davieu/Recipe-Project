@@ -1,5 +1,6 @@
 import Search from './models/Search';
-
+import * as searchView from './views/searchView';
+import { elements } from './views/base';
 /**Global State of the App
  * - Search object
  * - current recipe object
@@ -13,7 +14,8 @@ const state = {}
 
 const controlSearch = async () => {
   //get query from view
-  const query = 'pizza'
+  const query = searchView.getInput();
+  console.log(query)
 
   //if there is a query then execute
   if (query) {
@@ -30,13 +32,14 @@ const controlSearch = async () => {
     }
 
     //render results on ui
+    searchView.renderResults(state.search.result)
     console.log(state.search.result)
   }
 }
 
 
 
-document.querySelector('.search').addEventListener('submit', e => {
+elements.searchForm.addEventListener('submit', e => {
   //prevents page from reloading on submit
   e.preventDefault();
   controlSearch();

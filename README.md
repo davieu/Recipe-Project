@@ -19,12 +19,14 @@ View- gets and displays data from and to the user interface
 
 This project consists of:
 
-webpack/configuration
-babel/configuration
-mvc
-es6 modules
-default and named exports and imports
+Webpack/configuration
+Babel/configuration
+Object Oriented Programming
+MVC
+ES6 Modules
+Default and named exports and imports
 APIs/API keys - used food2fork API
-aync function / await
-axios - http request - try/catch 
-ES6 teamplate strings and adbanced DOM manipulation techniques
+Aync Function / Await
+Axios - http request - try/catch 
+ES6 Teamplate Strings
+Adanced DOM Manipulation Techniques
