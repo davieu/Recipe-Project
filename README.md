@@ -27,3 +27,4 @@ default and named exports and imports
 APIs/API keys - used food2fork API
 aync function / await
 axios - http request - try/catch 
+ES6 teamplate strings and adbanced DOM manipulation techniques
