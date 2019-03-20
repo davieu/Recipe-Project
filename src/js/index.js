@@ -1,3 +1,4 @@
+//CONTROLLER
 import Search from './models/Search';
 import * as searchView from './views/searchView';
 import { elements } from './views/base';
@@ -23,6 +24,8 @@ const controlSearch = async () => {
     state.search = new Search(query);
 
     //prepare ui for results/ loading 
+    searchView.clearInput();
+    searchView.clearResults();
 
     //search for recipes and await for the promise
     try {
@@ -34,6 +37,7 @@ const controlSearch = async () => {
     //render results on ui
     searchView.renderResults(state.search.result)
     console.log(state.search.result)
+    
   }
 }
 
