@@ -50,7 +50,18 @@ elements.searchForm.addEventListener('submit', e => {
   controlSearch();
 })
 
-
+//event delegation. tried to figure out wwhere click happened
+//using .closest() method will find the closest element with the '.btn-inline' class. so it wont select any of the child elements
+elements.searchResPages.addEventListener('click', e => {
+  const btn = e.target.closest('.btn-inline');
+  //if there is a button
+  if (btn) {
+    //the 10 is the base of the number. means 0-9
+    const goToPage = parseInt(btn.dataset.goto, 10);
+    searchView.clearResults();
+    searchView.renderResults(state.search.result, goToPage)
+  }
+})
 
 
 

@@ -1,3 +1,4 @@
+NOTE: Not meant for MOBILE
 DONT FORGET to npm install
 
 run the app options----------------
