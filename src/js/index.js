@@ -75,6 +75,10 @@ elements.searchResPages.addEventListener('click', e => {
  * RECIPE CONTROLLER
  */
 
- const r = new Recipe('46956')
- r.getRecipe();
- console.log(r)
+const controlRecipe = () => {
+  const id = window.location.hash;  
+  console.log(id)
+}
+
+
+window.addEventListener('hashchange', controlRecipe);
