@@ -22,7 +22,6 @@ const state = {}
 const controlSearch = async () => {
   //get query from view
   const query = searchView.getInput();
-  console.log(query)
 
   //if there is a query then execute
   if (query) {
@@ -50,12 +49,12 @@ const controlSearch = async () => {
 }
 
 
-
 elements.searchForm.addEventListener('submit', e => {
   //prevents page from reloading on submit
   e.preventDefault();
   controlSearch();
 })
+
 
 //event delegation. tried to figure out wwhere click happened
 //using .closest() method will find the closest element with the '.btn-inline' class. so it wont select any of the child elements
@@ -86,12 +85,16 @@ const controlRecipe = async () => {
 
     //Create new recipe object
     state.recipe = new Recipe(id);
-    //get recipe data
+
     try {
+      //get recipe data and parse ingredients
       await state.recipe.getRecipe();
+      state.recipe.parseIngredients();
+
       //calculate servings and time
       state.recipe.calcTime();
       state.recipe.calcServings();
+      
       //render recipe
       console.log(state.recipe)
     } catch(error) { 
