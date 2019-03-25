@@ -13,7 +13,7 @@ export default class Search {
       // console.log(this.result);
     } catch(error) {
       console.log(error)
-        alert(error);
+        alert('Error in async Search class');
     }; 
   }
 };

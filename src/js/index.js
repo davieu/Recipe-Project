@@ -37,7 +37,8 @@ const controlSearch = async () => {
     try {
     await state.search.getResults();
     } catch (error) {
-      alert(error)
+      alert('Error in processing control search')
+      clearLoader();
     }
 
     //render results on ui
@@ -75,10 +76,34 @@ elements.searchResPages.addEventListener('click', e => {
  * RECIPE CONTROLLER
  */
 
-const controlRecipe = () => {
-  const id = window.location.hash;  
+const controlRecipe = async () => {
+  //get ID from url
+  const id = window.location.hash.replace('#', '');  
   console.log(id)
-}
+
+  if (id) {
+    //prepare UI for changes
+
+    //Create new recipe object
+    state.recipe = new Recipe(id);
+    //get recipe data
+    try {
+      await state.recipe.getRecipe();
+      //calculate servings and time
+      state.recipe.calcTime();
+      state.recipe.calcServings();
+      //render recipe
+      console.log(state.recipe)
+    } catch(error) { 
+      alert('Error processing recipe');
+    }
+
+  }
+};
 
 
-window.addEventListener('hashchange', controlRecipe);
+// window.addEventListener('hashchange', controlRecipe);
+// window.addEventListener('load', controlRecipe);
+
+// refactored for adding same eventlistener to multiple events
+['hashchange', 'load'].forEach(event => window.addEventListener(event, controlRecipe));

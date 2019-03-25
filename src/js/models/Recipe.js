@@ -17,7 +17,7 @@ export default class Recipe {
       this.ingredients = res.data.recipe.ingredients;
     } catch(error) {
       console.log(error)
-      alert(error);
+      alert('Error in async await class');
     }
   }
 
