@@ -13,6 +13,14 @@ export const clearResults = () => {
   elements.searchResPages.innerHTML = '';
 };
 
+export const highlightSelected = id => {
+  const resultsArr = Array.from(document.querySelectorAll('.results__link'));
+  resultsArr.forEach(el => {
+      el.classList.remove('results__link--active');
+  });
+  document.querySelector(`.results__link[href*="${id}"]`).classList.add('results__link--active');
+};
+
 //method  .reduce((accumulator, current) => { }, 0) zero is initial 
 /* 
   'Pasta with tomato and spinach' this is explaining the reduce method
@@ -50,33 +58,32 @@ const limitRecipeTitle = (title, limit = 17) => {
 
 const renderRecipe = recipe => {
   const markup = `
-  <li title="${recipe.title}">
-    <a class="results__link" href="#${recipe.recipe_id}">
-        <figure class="results__fig">
+      <li>
+        <a class="results__link" href="#${recipe.recipe_id}">
+          <figure class="results__fig">
             <img src="${recipe.image_url}" alt="${recipe.title}">
-        </figure>
-        <div class="results__data">
+          </figure>
+          <div class="results__data">
             <h4 class="results__name">${limitRecipeTitle(recipe.title)}</h4>
             <p class="results__author">${recipe.publisher}</p>
-        </div>
-    </a>
-  </li>
+          </div>
+        </a>
+      </li>
   `;
-  
-  //place html before or after in DOM with insertAdjacentHTML method
   elements.searchResList.insertAdjacentHTML('beforeend', markup);
-}
+};
 
 //type: 'prev' or 'next' for the buttons for pagination
 //using data attribute
 const createButton = (page, type) => `
-  <button class="btn-inline results__btn--${type}" data-goto=${type === 'prev' ? page - 1 : page + 1}>
-    <span>Page ${type === 'prev' ? page - 1 : page + 1}</span>
-    <svg class="search__icon">
+    <button class="btn-inline results__btn--${type}" data-goto=${type === 'prev' ? page - 1 : page + 1}>
+      <span>Page ${type === 'prev' ? page - 1 : page + 1}</span>
+      <svg class="search__icon">
         <use href="img/icons.svg#icon-triangle-${type === 'prev' ? 'left' : 'right'}"></use>
-    </svg>
-  </button>
+      </svg>
+    </button>
 `;
+
 
 //PAGINATION this will add the buttons for next or go back a page
 const renderButtons = (page, numResults, resPerPage) => {
@@ -85,31 +92,31 @@ const renderButtons = (page, numResults, resPerPage) => {
 
   let button;
   if (page === 1 && pages > 1) {
-    //button to go to next page
-    button = createButton(page, 'next')
+    // Only button to go to next page
+    button = createButton(page, 'next');
   } else if (page < pages) {
-    // both buttons
-    button = `
-      ${createButton(page, 'next')}
-      ${createButton(page, 'prev')}
-    `;
+      // Both buttons
+      button = `
+        ${createButton(page, 'prev')}
+        ${createButton(page, 'next')}
+      `;
   } else if (page === pages && pages > 1) {
-    //only button to go to prev page
-    button = createButton(page, 'prev')
+      // Only button to go to prev page
+      button = createButton(page, 'prev');
   }
 
-  elements.searchResPages.insertAdjacentHTML('afterbegin', button)
-}
+  elements.searchResPages.insertAdjacentHTML('afterbegin', button);
+};
 
 //pagination for how many recipes load up on page
 export const renderResults = (recipes, page = 1, resPerPage = 10) => {
-  //render results of current page
+  // render results of currente page
   const start = (page - 1) * resPerPage;
   const end = page * resPerPage;
 
-  recipes.slice(start, end).forEach(renderRecipe)
+  recipes.slice(start, end).forEach(renderRecipe);
 
-  //render pagination buttons
-  renderButtons(page, recipes.length, resPerPage)
-}
+  // render pagination buttons
+  renderButtons(page, recipes.length, resPerPage);
+};
 
