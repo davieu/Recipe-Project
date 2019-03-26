@@ -10,7 +10,7 @@ export default class Search {
     try {
       const res = await axios(`https://www.food2fork.com/api/search?key=${keys.key}&q=${this.query}`)
       this.result = res.data.recipes;
-      // console.log(this.result);
+      console.log(this.result);
     } catch(error) {
       console.log(error)
         alert('Error in async Search class');

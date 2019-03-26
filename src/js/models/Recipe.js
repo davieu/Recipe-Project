@@ -15,9 +15,10 @@ export default class Recipe {
       this.img = res.data.recipe.image_url; 
       this.url = res.data.recipe.source_url;
       this.ingredients = res.data.recipe.ingredients;
+      console.log(res.data.recipe)
     } catch(error) {
       console.log(error)
-      alert('Error in async await class');
+      // alert('Error in async await class');
     }
   }
 
@@ -33,8 +34,10 @@ export default class Recipe {
   }
 
   parseIngredients() {
-    const unitsLong = ['tablespoons', 'tablespoon', 'ounces', 'ounce', 'teaspoons', 'teaspoon', 'cups', 'pounds'];
-    const unitsShort = ['tbsp', 'tbsp', 'oz', 'oz', 'tsp', 'tsp', 'cup', 'pound'];
+    //This is sorta hacky, hardcoded some other random terms in cooking and replace them with something the parser can read
+    const unitsLong = ['tablespoons', 'tablespoon', 'ounces', 'ounce', 'teaspoons', 'teaspoon', 'cups', 'pounds', 'heaping', 'to', 'scant'];
+    const unitsShort = ['tbsp', 'tbsp', 'oz', 'oz', 'tsp', 'tsp', 'cup', 'pound', 0, '-', 0];
+    const units = [...unitsShort, 'kg', 'g'];
 
     const newIngredients = this.ingredients.map(el => {
       //uniform units
@@ -47,7 +50,7 @@ export default class Recipe {
       ingredient = ingredient.replace(/ *\([^)]*\) */g, ' ');
       //parse ingredients into count, unit and ingredient
       const arrIng = ingredient.split(' ');
-      const unitIndex = arrIng.findIndex(el2 => unitsShort.includes(el2));
+      const unitIndex = arrIng.findIndex(el2 => units.includes(el2));
 
       let objIng;
       if (unitIndex > -1) {
