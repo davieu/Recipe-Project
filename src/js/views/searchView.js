@@ -31,7 +31,7 @@ export const highlightSelected = id => {
   acc: 18 / acc + cur.length = 24 / newTitle = ['Pasta', 'with', 'tomato']
 */
 //limit param has a DEFAULT param
-const limitRecipeTitle = (title, limit = 17) => {
+export const limitRecipeTitle = (title, limit = 17) => {
   const newTitle = [];
 
   //splitting the title/string into array and seeing if first word > limit
