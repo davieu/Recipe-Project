@@ -6,12 +6,18 @@ export default class Likes {
   addLike(id, title, author, img) {
     const like = { id, title, author, img }
     this.likes.push(like);
+
+    //persist data in localStorage
+
     return like;
   }
 
   delete(id) {
     const index = this.likes.findIndex(el => el.id === id);
     this.likes.splice(index, 1);
+
+    //persist data in localStorage
+
   }
 
   isLiked(id) {
@@ -20,6 +26,10 @@ export default class Likes {
 
   getNumLikes() {
     return this.likes.length;
+  }
+
+  persistData() {
+    localStorage.setItem('likes', JSON.stringify(this.likes))
   }
 
 }

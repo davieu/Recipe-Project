@@ -31,3 +31,4 @@ Aync Function / Await
 Axios - http request - try/catch 
 ES6 Teamplate Strings
 Adanced DOM Manipulation Techniques
+Local Storage
