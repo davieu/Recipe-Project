@@ -7,7 +7,7 @@
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
     "start": "node server.js",
-    "heroku-postbuild": "webpack -p"
+    "test": "webpack-dev-server --mode development --open"
   },
   "repository": {
     "type": "git",
