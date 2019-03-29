@@ -24,17 +24,17 @@ View- gets and displays data from and to the user interface
 
 This project consists of:
 
-Webpack/configuration,
-Babel/configuration,
-Object Oriented Programming,
-MVC,
-ES6 Modules,
-Default and named exports and imports,
-APIs/API keys - used food2fork API,
-Aync Function / Await,
-Axios - http request - try/catch ,
-ES6 Teamplate Strings,
-Adanced DOM Manipulation Techniques,
-Local Storage,
-Node.js / express,
+Webpack/configuration---
+Babel/configuration---
+Object Oriented Programming---
+MVC---
+ES6 Modules---
+Default and named exports and imports---
+APIs/API keys - used food2fork API---
+Aync Function / Await---
+Axios - http request - try/catch ---
+ES6 Teamplate Strings---
+Adanced DOM Manipulation Techniques---
+Local Storage---
+Node.js / express---
 Deployed to HEROKU
